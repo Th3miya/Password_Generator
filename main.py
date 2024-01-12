@@ -18,7 +18,7 @@ def generate_password(min_length, numbers=True, special=True):
     has_numbers = False
     has_special = False
 
-    while not meets_req or len(password) < min_length:
+    while not meets_req or len(password) <= min_length:
         new_char = random.choice(characters)
         password += new_char
 
@@ -36,4 +36,8 @@ def generate_password(min_length, numbers=True, special=True):
     print(password)
 
 
-generate_password(10)
+pwd_len = int(input("Enter the lenght of the Password: "))
+pwd_num = input("Do you need Numbers in your Passwords(y/n) ?").lower() == "y"
+pwd_special = input("Do you need Special Characters in your Password(y/n) ?").lower() == "y"
+
+generate_password(pwd_len, pwd_num, pwd_special)
